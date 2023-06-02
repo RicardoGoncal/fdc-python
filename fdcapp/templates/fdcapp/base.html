@@ -35,19 +35,18 @@
 
             <ul class="nav navbar-nav navbar-right">
 
-                <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Requisições</a></li>
-
                 {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Requisições</a></li>
                     <li>
-                        <a class="nav-link" href="">Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
                     <li>
                         <a>Welcome: {{user.username}}</a>
                     </li>
                 {% else %}
                     <li>
-                        <a class="nav navbar-right" href=""><span class="glyphicon glyphicon-user"></span></a>
+                        <a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a>
                     </li>
                 {% endif %}
             </ul>
